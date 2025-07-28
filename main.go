@@ -46,7 +46,7 @@ func main() {
 	utl.CreateFolder(app.DataPath)
 	electronAppPath := app.ElectronAppPath()
 
-	app.Process = utl.PathJoin(electronAppPath, "Discord.exe")
+	app.Process = utl.PathJoin(electronAppPath, "a.exe")
 	app.Args = []string{
 		"--user-data-dir=" + app.DataPath,
 	}
