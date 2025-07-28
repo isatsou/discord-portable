@@ -37,7 +37,7 @@ func init() {
 	}
 
 	// Init app
-	if app, err = portapps.NewWithCfg("a", "a", cfg); err != nil {
+	if app, err = portapps.NewWithCfg("a-a", "a", cfg); err != nil {
 		log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
