@@ -1,5 +1,5 @@
 //go:generate go install -v github.com/kevinburke/go-bindata/v4/go-bindata
-//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/Discord.lnk res/pinned_update.json
+//go:generate go-bindata -prefix res/ -pkg assets -o assets/assets.go res/a.lnk res/pinned_update.json
 //go:generate go install -v github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 //go:generate goversioninfo -icon=res/papp.ico -manifest=res/papp.manifest
 package main
@@ -37,7 +37,7 @@ func init() {
 	}
 
 	// Init app
-	if app, err = portapps.NewWithCfg("discord-portable", "Discord", cfg); err != nil {
+	if app, err = portapps.NewWithCfg("a", "a", cfg); err != nil {
 		log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
@@ -121,10 +121,10 @@ func main() {
 	}
 
 	// Copy default shortcut
-	shortcutPath := path.Join(utl.StartMenuPath(), "Discord Portable.lnk")
-	defaultShortcut, err := assets.Asset("Discord.lnk")
+	shortcutPath := path.Join(utl.StartMenuPath(), "a Portable.lnk")
+	defaultShortcut, err := assets.Asset("a.lnk")
 	if err != nil {
-		log.Error().Err(err).Msg("Cannot load asset Discord.lnk")
+		log.Error().Err(err).Msg("Cannot load asset a.lnk")
 	}
 	err = os.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
@@ -136,7 +136,7 @@ func main() {
 		ShortcutPath:     shortcutPath,
 		TargetPath:       app.Process,
 		Arguments:        shortcut.Property{Clear: true},
-		Description:      shortcut.Property{Value: "Discord Portable by Portapps"},
+		Description:      shortcut.Property{Value: "a Portable by Portapps"},
 		IconLocation:     shortcut.Property{Value: app.Process},
 		WorkingDirectory: shortcut.Property{Value: app.AppPath},
 	})
